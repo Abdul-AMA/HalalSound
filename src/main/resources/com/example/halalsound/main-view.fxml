@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.media.MediaView?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.halalsound.MainController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <top>
@@ -17,18 +16,18 @@
          <bottom>
             <AnchorPane prefHeight="70.0" prefWidth="800.0" styleClass="backgroundColor" stylesheets="@MyCss.css" BorderPane.alignment="CENTER">
                <children>
-                  <Slider layoutX="217.0" layoutY="12.0" prefHeight="50.0" prefWidth="380.0" />
-                  <Button layoutX="25.0" layoutY="25.0" mnemonicParsing="false" text="Button" />
-                  <Button layoutX="82.0" layoutY="25.0" mnemonicParsing="false" text="Button" />
-                  <Button layoutX="139.0" layoutY="25.0" mnemonicParsing="false" text="Button" />
-                  <Slider layoutX="620.0" layoutY="12.0" prefHeight="50.0" prefWidth="158.0" />
+                  <Slider fx:id="sliderTime" layoutX="217.0" layoutY="12.0" prefHeight="50.0" prefWidth="380.0" />
+                  <Button fx:id="buttonBack" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#onBack" prefWidth="52.0" text="Back" />
+                  <Button fx:id="buttonPlay" layoutX="82.0" layoutY="25.0" mnemonicParsing="false" onAction="#onPlay" prefWidth="52.0" text="Play" />
+                  <Button fx:id="buttonNext" layoutX="139.0" layoutY="25.0" mnemonicParsing="false" onAction="#onNext" prefWidth="52.0" text="Next" />
+                  <Slider fx:id="sliderVolume" layoutX="620.0" layoutY="12.0" prefHeight="50.0" prefWidth="158.0" />
                </children>
             </AnchorPane>
          </bottom>
          <center>
             <AnchorPane prefHeight="505.0" prefWidth="800.0" styleClass="backgroundColor" stylesheets="@MyCss.css" BorderPane.alignment="CENTER">
                <children>
-                  <MediaView fitHeight="200.0" fitWidth="200.0" layoutX="45.0" layoutY="35.0" />
+                  <MediaView fx:id="mediaView" fitHeight="480.0" fitWidth="800.0" layoutX="47.0" layoutY="247.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
          </center>
