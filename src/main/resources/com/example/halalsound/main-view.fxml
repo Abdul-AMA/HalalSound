@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Point3D?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -11,23 +15,41 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <top>
-            <AnchorPane prefHeight="50.0" prefWidth="800.0" styleClass="backgroundColor" stylesheets="@MyCss.css" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="30.0" prefWidth="800.0" styleClass="backgroundColor" stylesheets="@MyCss.css" BorderPane.alignment="CENTER">
+               <children>
+                  <MenuBar fx:id="MenuItem" layoutY="5.0" prefHeight="25.0" prefWidth="187.0" styleClass="backgroundColorTools" stylesheets="@MyCss.css">
+                    <menus>
+                      <Menu fx:id="menuFile" mnemonicParsing="false" text="File" />
+                      <Menu fx:id="menuTools" mnemonicParsing="false" text="Tools" />
+                        <Menu fx:id="menuHelp" mnemonicParsing="false" text="Help" />
+                    </menus>
+                  </MenuBar>
+               </children></AnchorPane>
          </top>
          <bottom>
-            <AnchorPane prefHeight="70.0" prefWidth="800.0" styleClass="backgroundColor" stylesheets="@MyCss.css" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="70.0" prefWidth="800.0" stylesheets="@MyCss.css" BorderPane.alignment="CENTER">
                <children>
-                  <Slider fx:id="sliderTime" layoutX="217.0" layoutY="12.0" prefHeight="50.0" prefWidth="380.0" />
-                  <Button fx:id="buttonBack" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#onBack" prefWidth="52.0" text="Back" />
-                  <Button fx:id="buttonPlay" layoutX="82.0" layoutY="25.0" mnemonicParsing="false" onAction="#onPlay" prefWidth="52.0" text="Play" />
-                  <Button fx:id="buttonNext" layoutX="139.0" layoutY="25.0" mnemonicParsing="false" onAction="#onNext" prefWidth="52.0" text="Next" />
-                  <Slider fx:id="sliderVolume" layoutX="620.0" layoutY="12.0" prefHeight="50.0" prefWidth="158.0" />
+                  <Slider fx:id="sliderTime" layoutX="217.0" layoutY="10.0" prefHeight="50.0" prefWidth="380.0" stylesheets="@MyCss.css">
+                     <rotationAxis>
+                        <Point3D x="1.0" z="1.0" />
+                     </rotationAxis></Slider>
+                  <Button fx:id="buttonBack" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#onBack" prefHeight="40.0" prefWidth="50.0" style="-fx-border-color: #2EC4B6;" styleClass="buttonBack" stylesheets="@MyCss.css" />
+                  <Button fx:id="buttonPlay" layoutX="80.0" layoutY="15.0" mnemonicParsing="false" onAction="#onPlay" prefHeight="40.0" prefWidth="50.0" style="-fx-border-color: #2EC4B6;" styleClass="buttonPlay" stylesheets="@MyCss.css" />
+                  <Button fx:id="buttonNext" layoutX="144.0" layoutY="15.0" mnemonicParsing="false" onAction="#onNext" prefHeight="40.0" prefWidth="50.0" style="-fx-border-color: #2EC4B6;" styleClass="buttonNext" stylesheets="@MyCss.css" />
+                  <Slider fx:id="sliderVolume" layoutX="620.0" layoutY="10.0" prefHeight="50.0" prefWidth="158.0" />
+                  <Label fx:id="labelTime" alignment="CENTER" layoutX="209.0" layoutY="48.0" prefHeight="17.0" prefWidth="73.0" />
+                  <Label fx:id="labelSpeed" alignment="CENTER" layoutX="748.0" layoutY="47.0" prefHeight="17.0" prefWidth="40.0" />
+                  <Label fx:id="labelVolume" alignment="CENTER" layoutX="621.0" layoutY="48.0" prefHeight="17.0" prefWidth="40.0" />
+                  <Button fx:id="buttonPause" layoutX="82.0" layoutY="15.0" mnemonicParsing="false" onAction="#onPause" prefHeight="40.0" prefWidth="50.0" style="-fx-border-color: #2EC4B6;" styleClass="buttonPause" stylesheets="@MyCss.css" visible="false" />
+                  <Label fx:id="labelTimeMax" alignment="CENTER" layoutX="532.0" layoutY="47.0" prefHeight="17.0" prefWidth="73.0" />
                </children>
             </AnchorPane>
          </bottom>
          <center>
             <AnchorPane prefHeight="505.0" prefWidth="800.0" styleClass="backgroundColor" stylesheets="@MyCss.css" BorderPane.alignment="CENTER">
                <children>
-                  <MediaView fx:id="mediaView" fitHeight="480.0" fitWidth="800.0" layoutX="47.0" layoutY="247.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <MediaView fx:id="mediaView" fitHeight="500.0" fitWidth="800.0" layoutX="47.0" layoutY="247.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <MediaView fx:id="cMedia" fitHeight="250.0" fitWidth="300.0" layoutX="251.0" layoutY="104.0" visible="false" />
                </children>
             </AnchorPane>
          </center>
