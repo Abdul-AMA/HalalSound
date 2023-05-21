@@ -119,12 +119,7 @@ public class MainController implements Initializable{
         MenuItem menuFileClose = new MenuItem("Close");
         menuFileClose.setOnAction( e-> {
             if (mediaView.isVisible()){
-                onPause();
-                mediaPlayer.dispose();
-                mediaView.setVisible(false);
-                labelSpeed.setVisible(false);
-                labelTime.setVisible(false);
-                labelTimeMax.setVisible(false);
+                    close();
 
             }
 
@@ -260,6 +255,7 @@ public class MainController implements Initializable{
             handleSlideTime();
             handleSlideVolume();
 
+
             mediaPlayer.setAutoPlay(true);
             mediaView.setSmooth(true);
             buttonPlay.setVisible(false);
@@ -336,6 +332,7 @@ public class MainController implements Initializable{
 
     public void handleSlideVolume(){
 
+        mediaPlayer.setVolume(0.5);
         sliderVolume.setValue(mediaPlayer.getVolume()*100);
         int volume = (int) (mediaPlayer.getVolume()*100);
         labelVolume.setText(String.format("%%%d",volume));
@@ -362,13 +359,7 @@ public class MainController implements Initializable{
             public void handle(ActionEvent event) {
                 // Perform your action here
                 if (mediaView.isVisible()){
-                    onPause();
-                    mediaPlayer.dispose();
-                    mediaView.setVisible(false);
-                    labelSpeed.setVisible(false);
-                    labelTime.setVisible(false);
-                    labelTimeMax.setVisible(false);
-
+                    close();
                 }
 
                 // This code will be executed after 5 seconds
@@ -376,6 +367,16 @@ public class MainController implements Initializable{
         });
 
 
+
+    }
+
+    public void close() {
+        onPause();
+        mediaPlayer.dispose();
+        mediaView.setVisible(false);
+        labelSpeed.setVisible(false);
+        labelTime.setVisible(false);
+        labelTimeMax.setVisible(false);
 
     }
 }
