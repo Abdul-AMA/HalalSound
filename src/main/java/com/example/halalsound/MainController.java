@@ -130,7 +130,11 @@ public class MainController implements Initializable{
         //----------------------------------------------------------------
         MenuItem menuFileSettings = new MenuItem("Settings");
         menuFileSettings.setOnAction( e-> {
-
+            try {
+                onSetting();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         });
         menuFile.getItems().add(menuFileSettings);
         //----------------------------------------------------------------
@@ -355,6 +359,26 @@ public class MainController implements Initializable{
         setToPlay("src/main/resources/com/example/halalsound/cena.mp4");
         timeline.play();
         timeline.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // Perform your action here
+                if (mediaView.isVisible()){
+                    close();
+                }
+
+                // This code will be executed after 5 seconds
+            }
+        });
+
+
+
+    }
+
+    public void onSetting() throws IOException {
+        Timeline timeline1 = new Timeline(new KeyFrame(Duration.seconds(10)));
+        setToPlay("src/main/resources/com/example/halalsound/rat.mp4");
+        timeline1.play();
+        timeline1.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 // Perform your action here
